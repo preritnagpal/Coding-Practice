@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>Event Propagation</title>
+</head>
+<body>
+    //Bubbling
+    <div id="parent">
+        <button id="child">Click Me for Bubbling</button>
+    </div>
+    // Bubbling Stop
+    <div id="parentstop">
+        <button id="childstop">Click Me for Stop Bubbling</button>
+    </div>
 
+    //Capturing
+    <div id="p">
+        <button id="c">Click Me for Capturing</button>
+    </div>
+    //Capturing Stop
+    <div id="pstop">
+        <button id="cstop">Click Me for Capturing</button>
+    </div>
+
+    <script>
+        // Bubbling
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+
+        parent.addEventListener("click", ()=>{
+            console.log("Parent Clicked in Bubbling");
+        });
+        child.addEventListener("click", ()=>{
+            console.log("Child Clicked in Bubbling");
+        });
+
+        // Bubbling Stop
+        const parentstop = document.getElementById("parentstop");
+        const childstop = document.getElementById("childstop");
+
+        parentstop.addEventListener("click", ()=>{
+            console.log("Parent Clicked in Bubbling for Stop");
+        });
+        childstop.addEventListener("click", (e)=>{
+            e.stopPropagation();
+            console.log("Child Clicked in Bubbling for Stop");
+        });
+
+        // Capturing
+        const p = document.getElementById("p");
+        const c = document.getElementById("c");
+
+        p.addEventListener("click", ()=>{
+            console.log("Parent Clicked in Capturing");
+        },true);
+        c.addEventListener("click", ()=>{
+            console.log("Child Clicked in Capturing");
+        });
+
+         // Capturing Stop
+        const pstop = document.getElementById("pstop");
+        const cstop = document.getElementById("cstop");
+
+        pstop.addEventListener("click", (e)=>{
+            e.stopPropagation();
+            console.log("Parent Clicked in Capturing for Stop");
+        },true);
+        cstop.addEventListener("click", ()=>{
+            console.log("Child Clicked in Capturing for Stop");
+        });
+
+    </script>
+</body>

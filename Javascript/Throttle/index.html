@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Practicing Throttling
+    </title>
+</head>
+<body>
+    <button id="btn" >Click Rapidly</button>
 
+    <script>
+        const btn = document.getElementById("btn");
+        function throttle(fn,delay){
+            let lastcall=0;
+            return function(){
+                let now = Date.now();
+                if(now-lastcall >= delay){
+                    lastcall = now;
+                    fn();
+                }
+            };
+        }
+        const handleClick = () => console.log("Executed", Date.now());
+        const throttled = throttle(handleClick,2000);
+        btn.addEventListener("click", () => throttled());
+    </script>
+</body>

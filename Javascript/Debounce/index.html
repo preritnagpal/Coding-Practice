@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Practing Debouncing</title>
+</head>
+<body>
+    <input type = "text" id = "Search" placeholder = "search">
+
+    <script>
+
+        const input = document.getElementById("Search");
+
+        function debounce(fn, delay){
+            let timer;
+            return function(...args){
+                clearTimeout(timer);
+                timer = setTimeout(()=>{
+                    fn.apply(this,args);  // handleSearch ko "iphone" argument ke saath call karo aur uska this bhi set karo.
+                },delay);
+            };
+        }
+        const handleSearch = (value) => console.log("APi Called" ,value);
+        const debouncedSearch = debounce(handleSearch, 1000);
+
+        input.addEventListener("input", function(){
+            debouncedSearch(this.value)});
+    </script>
+</body>
+
+// input.addEventListener("input", ()=>debouncedSearch(this.value)); X Error it will return Undefined
+// input.addEventListener("input", function(){
+            debouncedSearch(this.value)});
+// Kyunki normal function ke andar event listener this ko input element bana deta hai.

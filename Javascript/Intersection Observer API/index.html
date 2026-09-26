@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Practicing Lazy Loading</title>
+</head>
+<body>
+    <img src="https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?cs=srgb&dl=automobile-automotive-car-1335077.jpg&fm=jpg" loading="lazy" width="500" height="500" class="image">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.LqdT6PNHqPzrO2Wpt3U4rQHaEn?r=0&w=623&h=389&rs=1&pid=ImgDetMain&o=7&rm=3" loading="lazy" width="500" height="500" class="image">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.2wrdMpfhuE8Awxas9aEZUgHaE7?r=0&w=1280&h=853&rs=1&pid=ImgDetMain&o=7&rm=3" loading="lazy" width="500" height="500" class="image">
+    <img src="https://cdcssl.ibsrv.net/autodata/images/?IMG=USC40MBC651A01308.JPG&WIDTH=870" loading="lazy" width="500" height="500" class="image">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.rbqq49Wjusx6l9jOTKws3wHaEq?r=0&w=635&h=400&rs=1&pid=ImgDetMain&o=7&rm=3" loading="lazy" width="500" height="500" class="image">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.QN8D2GXLDKA8f7FMO13olgHaFO?r=0&w=625&h=441&rs=1&pid=ImgDetMain&o=7&rm=3" loading="lazy" width="500" height="500" class="image">
 
+    <script>
+        const images = document.getElementsByClassName("image");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    console.log("Image Visible");
+                }
+            });
+        },{
+            threshold:0.5
+        }
+    );
+        for(const img of images){
+            observer.observe(img);
+        }
+    </script>
+</body>

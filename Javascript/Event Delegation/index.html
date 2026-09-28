@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Delegation</title>
+    </head>
+</html>
+<body>
+    <ul id = "fruits">
+        <li>Apple</li>
+        <li>Mango</li>
+        <li>Guava</li>
+        <li>Pineapple</li>
+    </ul>
 
+    <script>
+        const list = document.getElementById("fruits");
+        list.addEventListener("click", (e)=>{
+            console.log(e.target.textContent);
+        });
+    </script>
+</body>

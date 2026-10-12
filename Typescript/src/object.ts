@@ -6,4 +6,3 @@ const User:{
     age: 25
 }
 console.log(User);
-

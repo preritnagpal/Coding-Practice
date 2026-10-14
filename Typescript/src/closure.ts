@@ -17,4 +17,3 @@ const inner = outer(10);
 console.log(inner(5));
 
 
-

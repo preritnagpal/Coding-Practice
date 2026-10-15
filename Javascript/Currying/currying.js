@@ -6,7 +6,6 @@ function add(a,b,c){
 console.log(add(2,4,6));
 
 // Curried Version 
-
 function curriedadd(a){
     return function(b){
         return function(c){

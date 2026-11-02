@@ -7,7 +7,7 @@ let user = {
         state:"UP"
     }
 };
-
+ 
 let shallow = {...user}
 
 shallow.adrdess.city = "Noida";
